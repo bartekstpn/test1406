@@ -1,0 +1,5 @@
+on: push
+name: Deploy website on VPS
+jobs:
+  web-deploy:
+    name: Deploy

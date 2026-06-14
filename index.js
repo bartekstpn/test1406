@@ -1,0 +1,1 @@
+console.log("Test deploy poprzez Github Actions");
