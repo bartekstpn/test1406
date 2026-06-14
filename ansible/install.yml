@@ -8,12 +8,9 @@
 
     - name: Install requiment packages
       ansible.builtin.apt:
-      - name:
+        name:
           - docker.io
           - docker-compose
           - nodejs
           - npm
-        state: present
-      ansible.builtin.apt:
-      - name: nodejs npm
         state: present
