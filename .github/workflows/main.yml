@@ -24,6 +24,16 @@ jobs:
             chmod 600 ~/.ssh/id_rsa
             ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
 
+            cd ~            
+            if [ ! -d "test1406/.git" ]; then
+              git clone git@github.com:bartekstpn/test1406.git
+            else
+              echo "Repozytorium istnieje, wykonuje git pull"
+              cd test1406
+              git pull origin main
+              cd ..
+            fi
+
         - name: Create ansible inventory
           run: |
             cat > inventory.ini <<EOF
