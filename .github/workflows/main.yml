@@ -24,9 +24,11 @@ jobs:
             chmod 600 ~/.ssh/id_rsa
             ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
 
+        - name: Pull repo
+          run: |
+            ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}
             cd ~           
             if [ ! -d "test1406/.git" ]; then
-              ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}
               git clone git@github.com:bartekstpn/test1406.git
             else
               echo "Repozytorium istnieje, wykonuje git pull"
